@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hello World!</title>
     <!-- linking to PyScript assets -->
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
   </head>
   <body>
     <h1>Python with PyScript</h1>
-    
+
     <!-- HTML input element for user interaction -->
     <input id="name-input" type="text" placeholder="Enter your name" />
     <button id="submit-btn">Submit</button>
-    
+
     <p id="greeting"></p>
-    
+
     <py-script>
         def greet_user(*args, **kwargs):
             name = Element("name-input").element.value
             greeting_element = Element("greeting")
-            greeting_element.write(f"Hello, {name}!")
-        
+            greeting_element.write(f"Hello, {name.upper()}!")
+
         # Attach the greet_user function to the button click event
         Element("submit-btn").element.onclick = greet_user
     </py-script>
